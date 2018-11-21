@@ -39,7 +39,8 @@ function setStopID(name, from){
     var http = new XMLHttpRequest();
     var url = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name" + "?input=" + name + "&format=json";
     http.open("GET", url, true);
-    http.setRequestHeader("Authorization","Bearer " + token);
+    http.setRequestHeader("Authorization","Bearer dc995dd2-676c-3910-951f-c31a0d386089");
+    //http.setRequestHeader("Authorization","Bearer " + token);
 
     http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 200) {
