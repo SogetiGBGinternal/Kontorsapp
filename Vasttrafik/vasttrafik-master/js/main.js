@@ -6,6 +6,7 @@ var monitorRequest;
 
 
 function getBestMatchingStops(name, callback) {
+    console.log(token);
     var http = new XMLHttpRequest();
     var url = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name" + "?input=" + name + "&format=json";
     http.open("GET", url, true);
