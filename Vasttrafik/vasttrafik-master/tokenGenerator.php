@@ -7,7 +7,8 @@
 
 $device = htmlspecialchars($_GET["device"]);
 //Change params to your key and secret
-$keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa"); 
+//$keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga:_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa");
+$keySecret = 'R2wzb1JmaDZka0pzR0ExQWZ5a2JmTWQ3blRnYTpfWWl5RFdYWkJYZkFhUTRobjBOd0o4ZkE4ZVVh'; 
 
 // create a new cURL resource
 $ch = curl_init();
