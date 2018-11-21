@@ -8,7 +8,12 @@
 $device = htmlspecialchars($_GET["device"]);
 //Change params to your key and secret
 $keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga:_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa");
-
+echo
+"<div display='none'>
+    <script type='text/javascript'>
+        console.log($keySecret);
+    </script>
+</div>";
 // create a new cURL resource
 $ch = curl_init();
 
