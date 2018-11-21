@@ -6,12 +6,11 @@ var monitorRequest;
 
 
 function getBestMatchingStops(name, callback) {
-
     var http = new XMLHttpRequest();
     var url = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name" + "?input=" + name + "&format=json";
     http.open("GET", url, true);
     http.setRequestHeader("Authorization","Bearer " + token);
-    console.log(token);
+
     http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 200) {
             var jsonResponse = JSON.parse(http.responseText);
