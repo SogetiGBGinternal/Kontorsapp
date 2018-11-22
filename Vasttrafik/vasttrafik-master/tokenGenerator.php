@@ -7,7 +7,7 @@
 
 $device = htmlspecialchars($_GET["device"]);
 //Change params to your key and secret
-$keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga":"_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa");
+$keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga:_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa");
 
 // create a new cURL resource
 $ch = curl_init();
@@ -19,7 +19,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch,CURLOPT_POST,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS, "grant_type=client_credentials&scope=device_" . $device);
 curl_setopt($ch,CURLOPT_HTTPHEADER,array("Content-type: application/x-www-form-urlencoded",
-                                            "Authorization: Basic " . $keySecret));
+                                            "Authorization", "Basic " . $keySecret));
 
 // grab URL and pass it to the browser
 $result = curl_exec($ch);
