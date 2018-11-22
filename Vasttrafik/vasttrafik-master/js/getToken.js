@@ -1,6 +1,4 @@
-/**
- * Created by Kim on 2017-04-19.
- */
+
 
 var token;
 function getToken(device_id, callback) {

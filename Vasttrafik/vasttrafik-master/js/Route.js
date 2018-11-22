@@ -1,6 +1,4 @@
-/**
- * Created by Kim on 2017-04-19.
- */
+
 function Route(name, endStation, bgColor, fgColor) {
     this.name = name;
     this.endStation = endStation;
@@ -55,12 +53,12 @@ function Route(name, endStation, bgColor, fgColor) {
                 fontSize = 1.2;
             }
         }
-        var styleString = 'background-color:' + this.fgColor + 
+        var styleString = 'background-color:' + this.fgColor +
                             '; color:' + (this.bgColor) +
                             '; font-size: '+ fontSize +'em;';
         return '<div class="bussNumber" style="' + styleString + '">' + this.name + '</div>';
     };
-    
+
     this.drawEndStation = function () {
         return '<div class="arrivalTime">' + this.endStation.split(",")[0] + '</div>';
     };
