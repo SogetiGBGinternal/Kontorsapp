@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Västtrafik API</title>
+    
+    <style>
+        
+    </style>
+</head>
+<body>
+
+<h1>Västtrafik API</h1>
+
+<script src="./dist/vasttrafik.js"></script>
+<script>
+    (function() {
+        // Generate access token on server (see example.js) and replace the access token placeholder
+        // Vasttrafik seems to have blocked token generation from client side (for security reasons)
+        var token = '<access-token-placeholder>';
+        vasttrafik.setAccessToken(token);
+
+        var api = new vasttrafik.LocationApi();
+        api.getLocationByName({input: 'Lindholmen'}, function() {
+            console.log(res.text);
+        });
+    })();
+</script>
+
+</body>
+</html>
