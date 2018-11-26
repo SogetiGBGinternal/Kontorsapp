@@ -21,6 +21,6 @@ $result = curl_exec($ch);
 $jsonObj = json_decode($result);
 $key = "access_token";
 echo (String) ($jsonObj->$key);
-echo $key;
 // close cURL resource, and free up system resources
 curl_close($ch);
+?>
