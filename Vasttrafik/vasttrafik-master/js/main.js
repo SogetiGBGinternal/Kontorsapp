@@ -6,7 +6,7 @@ var monitorRequest;
 function getBestMatchingStops(name, callback) {
     var http = new XMLHttpRequest();
     var url = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name" + "?input=" + name + "&format=json";
-    http.open("GET", url, true);
+    http.open("POST", url, true);
     //http.setRequestHeader("Authorization","Bearer ca0d3245-35ad-3d6a-91bc-cb069ab30485");
     http.setRequestHeader("Authorization","Bearer " + token);
 
@@ -35,7 +35,7 @@ function getBestMatchingStops(name, callback) {
 function setStopID(name, from){
     var http = new XMLHttpRequest();
     var url = "https://api.vasttrafik.se/bin/rest.exe/v2/location.name" + "?input=" + name + "&format=json";
-    http.open("GET", url, true);
+    http.open("POST", url, true);
     //http.setRequestHeader("Authorization","Bearer ca0d3245-35ad-3d6a-91bc-cb069ab30485");
     http.setRequestHeader("Authorization","Bearer " + token);
 
