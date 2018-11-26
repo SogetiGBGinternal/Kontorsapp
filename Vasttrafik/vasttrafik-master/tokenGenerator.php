@@ -1,7 +1,7 @@
 
 
 <?php
-
+/**
 // CORS enablement and other headers
 header("Access-Control-Allow-Origin: *");
 header("Content-type: application/json");
@@ -35,8 +35,8 @@ if ($response === FALSE) {
 } else {
   echo $response;
 }
+**/
 
-/**
 $device = htmlspecialchars($_GET["device"]);
 //Change params to your key and secret
 $keySecret = base64_encode("Gl3oRfh6dkJsGA1AfykbfMd7nTga:_YiyDWXZBXfAaQ4hn0NwJ8fA8eUa");
@@ -60,5 +60,4 @@ $key = "access_token";
 echo (String) ($jsonObj->$key);
 // close cURL resource, and free up system resources
 curl_close($ch);
-*/
 ?>
