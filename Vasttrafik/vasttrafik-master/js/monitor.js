@@ -100,7 +100,7 @@ function requestServerTime(reqInfo){
     var time = "" + timePadding(d.getHours()) + "%3A" + timePadding(d.getMinutes());  //HH:MM
 
     var http = new XMLHttpRequest();
-    var url = "https://www.pweb/timeGenerator.php";
+    var url = "https://pweb/timeGenerator.php";
     http.open("GET", url, true);
 
     http.onreadystatechange = function() {//Call a function when the state changes.
