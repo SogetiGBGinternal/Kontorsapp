@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+function startTime() {
+    var today = new Date();
+    var y = today.getFullYear();
+    var mo = today.getMonth();
+    var d = today.getDate();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    d = checkTime(d);
+    m = checkTime(m);
+    s = checkTime(s);
+    mo = checkMonth(mo);
+    document.getElementById('datetime').innerHTML =
+    y + "-" + mo + "-" + d + " " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+function checkMonth(j) {
+    j+=1;   //months start from 0, add 1 to display correct
+    return j;
+}
+</script>
 <style>
 .header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+#time{
+  position: relative;
 }
 
 .flex-container {
@@ -25,21 +55,33 @@
   width: 250px;
   height: 300px;
 }
+
+.flex-container > iframe {
+  background-color: #ECECEC;
+  margin: 30px;
+  padding: 20px;
+  font-size: 30px;
+  width: 1050px;
+  height: 500px;
+}
 </style>
 </head>
-<body>
+<body onload="startTime()">
+  <p id="time"><span id="datetime"></span></p>
 <div class="header">
   <img src="Images/Sogeti_Logo.png" style="width:25%; height:25%" />
 </div>
 <div class="flex-container">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-  <div>7</div>
-  <div>8</div>
+    <!--<iframe src="http://kimericsvensson.se/vasttrafik/monitor.html?from=9021014002210000&to=&device=87019"height="500" width="1050"></iframe>-->
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
 </div>
 </body>
 </html>
