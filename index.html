@@ -54,44 +54,48 @@ body {
 }
 </style>
 <script>
-function startTime() {
-  var today = new Date();
-  var y = today.getFullYear();
-  var mo = today.getMonth();
-  var d = today.getDate();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  d = checkTime(d);
-  h = checkTime(h);
-  m = checkTime(m);
-  s = checkTime(s);
-  mo = checkMonth(mo);
-  document.getElementById('datetime').innerHTML =
-  y + "-" + mo + "-" + d + " " + h + ":" + m + ":" + s;
-  var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-function checkMonth(j) {
-  j+=1;   //months start from 0, add 1 to display correct
-  return j;
-}
-function hideFunction(wname,divid,buttonID) {
-var x = document.getElementById(divid);
-var y = document.getElementById(buttonID);
-if (x.style.display === "none") {
-  x.style.display = "block";
-  //y.style.marginRight = "-75px";
-  y.innerHTML = "Hide";
-} else {
-  x.style.display = "none";
-  y.style.marginRight = "30px";
-  y.innerHTML = "Show"+" "+wname;
-}
-}
+  function startTime() {
+    var today = new Date();
+    var y = today.getFullYear();
+    var mo = today.getMonth();
+    var d = today.getDate();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    d = checkTime(d);
+    h = checkTime(h);
+    m = checkTime(m);
+    s = checkTime(s);
+    mo = checkMonth(mo);
+    document.getElementById('datetime').innerHTML =
+      y + "-" + mo + "-" + d + " " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+  }
+
+  function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+  }
+
+  function checkMonth(j) {
+    j += 1;   //months start from 0, add 1 to display correct
+    return j;
+  }
+
+  function hideFunction(wname, divid, buttonID) {
+    var x = document.getElementById(divid);
+    var y = document.getElementById(buttonID);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      //y.style.marginRight = "-75px";
+      y.innerHTML = "Hide";
+    } else {
+      x.style.display = "none";
+      y.style.marginRight = "30px";
+      y.innerHTML = "Show" + " " + wname;
+    }
+  }
+
 </script>
 </head>
 <body onload="startTime()">
