@@ -46,8 +46,17 @@ body {
   padding: 0;
   font-size: 30px;
   width: 300px;
-  height: 350px;
+  height: 350px; 
 }
+
+.widget-placeholder {
+  margin: 0px;
+  padding: 0px;
+  width: 300px;
+  height: 350px;
+  border: 0.05em solid #ffffff;
+}
+
 .divbutton{
   margin-top: 20px;
   z-index: 100;
@@ -105,11 +114,18 @@ body {
 <div class="flex-container">
   <div>
     <button class="divbutton" id="div1button" value="div1" name="Travel widget" onclick="hideFunction(this.name,this.value,this.id)">Hide</button>
-    <div class="divclass" id="div1"><iframe src="https://pweb.se/monitor.html?from=9021014002210000&to=&device=25694"height="350" width="300"></iframe></div>
+    <div class="divclass" id="div1"><iframe class="widget-placeholder" src="https://pweb.se/monitor.html?from=9021014002210000&to=&device=25694"height="350" width="300"></iframe></div>
   </div>
   <div>
-    <button class="divbutton" id="div2button" value="div2" name="Empty widget" onclick="hideFunction(this.name,this.value,this.id)">Hide</button>
-    <div class="divclass" id="div2"><iframe>Empty frame</iframe></div>
+    <button class="divbutton" id="div2button" value="div2" name="News widget" onclick="hideFunction(this.name,this.value,this.id)">Hide</button>
+      <div class="divclass" id="div2">
+        <div class="widget-placeholder">
+          <script type="text/javascript" src="script/rssReader.js"></script>
+          <script language="javascript">rssUrlGen();</script>
+          <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
+          <div style="color:#ccc;font-size:10px; text-align:right; width:300px;"></div>
+      </div>
+    </div>
   </div>
 </div>
 </body>
