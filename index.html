@@ -46,7 +46,7 @@ body {
   padding: 0;
   font-size: 30px;
   width: 300px;
-  height: 350px; 
+  height: 350px;
 }
 
 .widget-placeholder {
@@ -88,6 +88,7 @@ body {
 
   function checkMonth(j) {
     j += 1;   //months start from 0, add 1 to display correct
+    if (j < 10) { j = "0" + j };
     return j;
   }
 
