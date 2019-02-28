@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 <style>
 body {
     width: 100%;
@@ -46,7 +47,7 @@ body {
   padding: 0;
   font-size: 30px;
   width: 300px;
-  height: 350px;
+  height: 350px; 
 }
 
 .widget-placeholder {
@@ -57,10 +58,35 @@ body {
   border: 0.05em solid #ffffff;
 }
 
+<<<<<<< HEAD
+=======
+.widget-placeholder {
+  margin: 0px;
+  padding: 0px;
+  width: 300px;
+  height: 350px;
+  border: 0.05em solid #ffffff;
+}
+
+>>>>>>> 588fd62295cbbf6e4ae0240e80e75d3c4123330c
 .divbutton{
   margin-top: 20px;
   z-index: 100;
 }
+
+.forecast-text-small {
+  font-size: 0.5em;  
+}
+
+.forecast-text-large {
+  font-size: 0.5em;  
+}
+
+.tbl-weather-thead {
+  background-color: #00BFFF;
+  color: #FFFFFF;
+}
+
 </style>
 <script>
   function startTime() {
@@ -128,6 +154,18 @@ body {
       </div>
     </div>
   </div>
+  <div>
+    <button class="divbutton" id="div3button" value="div3" name="Weather widget" onclick="hideFunction(this.name,this.value,this.id)">Hide</button>
+    <div class="divclass" id="div3">
+        <table id="tbl-weather" class="table table-bordered">
+          
+        </table>
+    </div>
+  </div>
 </div>
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<script type="text/javascript" src="script/weatherForecast.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
 </body>
 </html>
