@@ -1,6 +1,7 @@
 
 let dt = new Date();
 let strDate = dt.toLocaleString().substr(0, 10);
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
 let baseURL = 'https://api.met.no/weatherapi';
 let forecastBase = 'locationforecast/1.9';
 let weatherIconBase = 'weathericon/1.1';
@@ -14,9 +15,33 @@ let forecastStartDate;
 let forecastResponeText;
 let forecastArray = [];
 
+var domIsReady = (function(domIsReady) {
+  var isBrowserIeOrNot = function() {
+     return (!document.attachEvent || typeof document.attachEvent === "undefined" ? 'not-ie' : 'ie');
+  }
 
+  domIsReady = function(callback) {
+     if(callback && typeof callback === 'function'){
+        if(isBrowserIeOrNot() !== 'ie') {
+           document.addEventListener("DOMContentLoaded", function() {
+              return callback();
+           });
+        } else {
+           document.attachEvent("onreadystatechange", function() {
+              if(document.readyState === "complete") {
+                 return callback();
+              }
+           });
+        }
+     } else {
+        console.error('The callback is not a function!');
+     }
+  }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+  return domIsReady;
+})(domIsReady || {});
+
+if(domIsReady) { 
 
   let sunriseXML;
 
@@ -108,12 +133,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let sunriseTS;
     let returnVal;
     
-    try{
-      timeNodes = xml.getElementsByTagName('time');
-    }catch(error){
-      // If the xml isn't ready we refresh the page
-      console.log('Page was reloaded');
-      window.location.reload(true);
+    if(!isIE){
+      try{
+        timeNodes = xml.getElementsByTagName('time');
+      }catch(error){
+        // If the xml isn't ready we refresh the page
+        console.log('Page was reloaded');
+        window.location.reload(true);
+      }
     }
 
     for(let i = 0; i < timeNodes.length; i++){
@@ -231,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     createForecastTableBody(forecastArray);
   }, forecastURL);
 
-});
+};
 
 
 
