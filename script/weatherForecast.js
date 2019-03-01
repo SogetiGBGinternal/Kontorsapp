@@ -89,16 +89,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // check if the forecast start time is between sunset and sunrise
   function checkTimePeriod(sunset, sunrise, forecastTimeFull) {
     let returnVal;
-    let currentDT = new Date();
-    let currentTS = currentDT.toLocaleString();
-    let currentTime = currentTS.substr(11,19);
     let format = 'hh:mm:ss'
     let time = moment(forecastTimeFull, format),
       beforeTime = moment(sunset, format),
       afterTime = moment(sunrise, format).add(1, 'day');
     if (time.isBetween(beforeTime, afterTime)) {
       returnVal = true;
-    } else {
+    }else {
       returnVal = false;
     }
     return returnVal;
@@ -110,7 +107,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let sunsetTS;
     let sunriseTS;
     let returnVal;
-    timeNodes = xml.getElementsByTagName('time'); 
+    
+    try{
+      timeNodes = xml.getElementsByTagName('time');
+    }catch(error){
+      // If the xml isn't ready we refresh the page
+      console.log('Page was reloaded');
+      window.location.reload(true);
+    }
+
     for(let i = 0; i < timeNodes.length; i++){
       sunsetTS = getNodeValue1(timeNodes[i], 'sunset', 'time').substr(11, 8);
       sunriseTS = getNodeValue1(timeNodes[i], 'sunrise', 'time').substr(11, 8);
