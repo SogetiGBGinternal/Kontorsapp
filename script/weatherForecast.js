@@ -93,6 +93,8 @@ if(domIsReady) {
 
   // Get value from child > attribute 
   function getNodeValue1(nParent, nName, nAttr) {
+    // console.log("B:" + nName);
+    // console.log("C:" + nAttr);
     for(let i = 0; i < nParent.childNodes.length; i++){
         if(nParent.childNodes[i].nodeName === nName){
           return nParent.childNodes[i].getAttribute(nAttr);
@@ -144,8 +146,17 @@ if(domIsReady) {
     }
 
     for(let i = 0; i < timeNodes.length; i++){
-      sunsetTS = getNodeValue1(timeNodes[i], 'sunset', 'time').substr(11, 8);
-      sunriseTS = getNodeValue1(timeNodes[i], 'sunrise', 'time').substr(11, 8);
+    for(let x = 0; x < timeNodes[i].childNodes.length; x++){
+      if(timeNodes[i].childNodes[x].nodeName == "sunset"){
+        sunsetTS = getNodeValue1(timeNodes[i], 'sunset', 'time').substr(11, 8);
+      }
+      else if(timeNodes[i].childNodes[x].nodeName == "sunrise"){
+        sunriseTS = getNodeValue1(timeNodes[i], 'sunrise', 'time').substr(11, 8);
+      }
+    }
+    
+    
+
     }if(checkTimePeriod(sunsetTS, sunriseTS, forecastTimeFull)){
       returnVal = '&is_night=1';
     }else{
@@ -249,6 +260,7 @@ if(domIsReady) {
     forecastStartDate = formatStartDate(dt);
     sunriseXML = result;
   }, sunriseURL);
+  console.log(sunriseURL);
   
   // Gets the data needed from the forecast API
   getXML(function (result) {
